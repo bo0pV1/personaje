@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace personaje
+namespace PersonajeConsole
 {
     internal class Personaje
     {
         public int Vida;
-        public string Color = "blanco";
+        public string Color;
         public int Defensa;
         public int Fuerza;
-        public int Mana = 10;
+        public int Mana;
         public int Daño;
 
         public void CambiarColor(string NuevoColor)
@@ -27,13 +27,13 @@ namespace personaje
             DañoEfectivo = FuerzaATK - Defensa;
             if (DañoEfectivo < 0)
             {
-                Console.WriteLine("el ataque fue mitigado!");
+
                 DañoEfectivo = 0;
             }
             else
             {
 
-                Vida = Vida - DañoEfectivo;
+                Vida -= DañoEfectivo;
 
             }
             return DañoEfectivo;
@@ -42,19 +42,18 @@ namespace personaje
 
         public int atacar(Personaje objetivo)
         {
-            if (Mana > 0)
+            if (Mana >= 10)
             {
-                Mana = Mana - 1;
+                Mana = Mana - 10;
                 return objetivo.RecibirDaño(Fuerza);
-
             }
+
             else
             {
-                Console.WriteLine("No tenes mana flaco");
                 return 0;
             }
-
 
         }
     }
 }
+
