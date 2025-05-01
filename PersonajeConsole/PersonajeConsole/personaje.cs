@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PersonajeConsole
 {
-    internal class Personaje
+    public class Personaje
     {
         public int Vida;
         public string Color;
@@ -14,6 +14,8 @@ namespace PersonajeConsole
         public int Fuerza;
         public int Mana;
         public int Daño;
+        public int ManaTotal;
+        public int VidaTotal;
 
         public void CambiarColor(string NuevoColor)
         {

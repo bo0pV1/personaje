@@ -22,6 +22,7 @@ while (seleccion!=0)
     Console.WriteLine("1-cambiar color");
     Console.WriteLine("2-atacar!");
     Console.WriteLine("3-recibir daño");
+    Console.WriteLine("4-utilizar pocion (1-Vida/2-Mana)");
     Console.WriteLine("0-salir");
     seleccion = int.Parse(Console.ReadLine());
     switch (seleccion)
@@ -40,7 +41,34 @@ while (seleccion!=0)
             Console.WriteLine("el daño recibido es de: " + p2.atacar(p1));
 
             break;
-        
+        case 4:
+            int sel=0;
+            Console.WriteLine("seleccione que pocion quisiera utilizar");
+            sel = int.Parse(Console.ReadLine());
+            switch (sel)
+            {
+                case 1:
+                    PocionVida pocivida = new PocionVida();
+                    Console.WriteLine("ingrese un el valor maximo que puede curar tu pocion!");
+                    pocivida.maximo = int.Parse(Console.ReadLine());
+                    Console.WriteLine("ingrese un el valor minimo que puede curar tu pocion!");
+                    pocivida.minimo = int.Parse(Console.ReadLine());
+                 
+                    break;
+
+                case 2:
+                    PocionMana pocimana = new PocionMana();
+                    Console.WriteLine("ingrese un el valor maximo que puede reestablecer tu pocion!");
+                    pocimana.maximo = int.Parse(Console.ReadLine());
+                    Console.WriteLine("ingrese un el valor minimo que puede reestablecer tu pocion!");
+                    pocimana.minimo = int.Parse(Console.ReadLine());
+                   
+                    break;
+            
+            }   
+            
+
+            break;
         
     }
     MuestraPJ();
@@ -52,10 +80,12 @@ void CargaPersonaje(Personaje personaje)
 {
     Console.WriteLine("ingrese cuanta vida tiene su personaje!");
     personaje.Vida = int.Parse(Console.ReadLine());
+    personaje.VidaTotal = personaje.Vida;
     Console.WriteLine("ingrese el color del personaje");
     personaje.Color = Console.ReadLine();
     Console.WriteLine("ingrese la cantidad de mana de su personaje");
     personaje.Mana = int.Parse(Console.ReadLine());
+    personaje.ManaTotal  = personaje.Mana;
     Console.WriteLine("ingrese cuanta defensa tiene su personaje!");
     personaje.Defensa = int.Parse(Console.ReadLine());
     Console.WriteLine("ingrese su fuerza!");
@@ -73,6 +103,5 @@ void MuestraPJ()
     Console.WriteLine("Personaje: " + p2.Color);
     Console.WriteLine("Vida: " + p2.Vida);
     Console.WriteLine("Mana: " + p2.Mana);
-
 
 }
