@@ -11,8 +11,11 @@ namespace PersonajeConsole
         public int maximo { get; set; }
         public int minimo { get; set; }
 
+        public int cura { get; set; }
+        public int restaura { get; set; }
 
-        public abstract void usar();
+
+        public abstract int usar(Personaje p1);
         
           
 

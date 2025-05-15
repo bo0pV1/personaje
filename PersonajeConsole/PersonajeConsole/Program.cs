@@ -1,4 +1,5 @@
 ﻿using PersonajeConsole;
+using System.Net;
 
 Personaje p1 = new Personaje();
 Personaje p2 = new Personaje();
@@ -53,7 +54,11 @@ while (seleccion!=0)
                     pocivida.maximo = int.Parse(Console.ReadLine());
                     Console.WriteLine("ingrese un el valor minimo que puede curar tu pocion!");
                     pocivida.minimo = int.Parse(Console.ReadLine());
-                 
+                    Console.WriteLine("toque cualquier tecla para ejecutar el uso de la pocion!");
+                    Console.ReadKey();
+                    pocivida.usar(p1);
+                    Console.WriteLine($"la pocion restauro: {pocivida.cura} de mana");
+
                     break;
 
                 case 2:
@@ -62,7 +67,10 @@ while (seleccion!=0)
                     pocimana.maximo = int.Parse(Console.ReadLine());
                     Console.WriteLine("ingrese un el valor minimo que puede reestablecer tu pocion!");
                     pocimana.minimo = int.Parse(Console.ReadLine());
-                   
+                    Console.WriteLine("toque cualquier tecla para ejecutar el uso de la pocion!");
+                    Console.ReadKey();
+                    pocimana.usar(p1);
+                    Console.WriteLine($"la pocion restauro: {pocimana.restaura} de mana");
                     break;
             
             }   
