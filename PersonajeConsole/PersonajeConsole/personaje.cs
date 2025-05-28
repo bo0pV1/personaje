@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace PersonajeConsole
 {
-    public class Personaje
+    public class Personaje : Inventario
     {
+        public Inventario Inventario { get; set; } = new();
         public int Vida;
         public string Color;
         public int Defensa;

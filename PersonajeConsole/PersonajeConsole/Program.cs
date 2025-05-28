@@ -5,6 +5,7 @@ Personaje p1 = new Personaje();
 Personaje p2 = new Personaje();
 Personaje personaje = new Personaje();
 
+
 int seleccion=3;
 Console.WriteLine("antes de comenzar crea 2 personajes");
 Console.WriteLine("Personaje numero 1");
@@ -43,34 +44,19 @@ while (seleccion!=0)
 
             break;
         case 4:
+ 
             int sel=0;
             Console.WriteLine("seleccione que pocion quisiera utilizar");
             sel = int.Parse(Console.ReadLine());
+
             switch (sel)
             {
                 case 1:
-                    PocionVida pocivida = new PocionVida();
-                    Console.WriteLine("ingrese un el valor maximo que puede curar tu pocion!");
-                    pocivida.maximo = int.Parse(Console.ReadLine());
-                    Console.WriteLine("ingrese un el valor minimo que puede curar tu pocion!");
-                    pocivida.minimo = int.Parse(Console.ReadLine());
-                    Console.WriteLine("toque cualquier tecla para ejecutar el uso de la pocion!");
-                    Console.ReadKey();
-                    pocivida.usar(p1);
-                    Console.WriteLine($"la pocion restauro: {pocivida.cura} de mana");
 
                     break;
 
                 case 2:
-                    PocionMana pocimana = new PocionMana();
-                    Console.WriteLine("ingrese un el valor maximo que puede reestablecer tu pocion!");
-                    pocimana.maximo = int.Parse(Console.ReadLine());
-                    Console.WriteLine("ingrese un el valor minimo que puede reestablecer tu pocion!");
-                    pocimana.minimo = int.Parse(Console.ReadLine());
-                    Console.WriteLine("toque cualquier tecla para ejecutar el uso de la pocion!");
-                    Console.ReadKey();
-                    pocimana.usar(p1);
-                    Console.WriteLine($"la pocion restauro: {pocimana.restaura} de mana");
+
                     break;
             
             }   
@@ -98,6 +84,33 @@ void CargaPersonaje(Personaje personaje)
     personaje.Defensa = int.Parse(Console.ReadLine());
     Console.WriteLine("ingrese su fuerza!");
     personaje.Fuerza = int.Parse(Console.ReadLine());
+    personaje.Inventario.Personaje = personaje;
+    personaje.Inventario.Agregaritem(CrearPocionVida());
+    personaje.Inventario.Agregaritem(CrearPocionMana());
+}
+PocionVida CrearPocionVida()
+{
+
+    PocionVida pocivida = new PocionVida();
+    Console.WriteLine("ingrese un el valor maximo que puede curar tu pocion!");
+    pocivida.maximo = int.Parse(Console.ReadLine());
+    Console.WriteLine("ingrese un el valor minimo que puede curar tu pocion!");
+    pocivida.minimo = int.Parse(Console.ReadLine());
+    Console.WriteLine("Pocion Creada!");
+
+    return pocivida;
+}
+
+PocionMana CrearPocionMana()
+{
+    PocionMana pocimana = new PocionMana();
+    Console.WriteLine("ingrese un el valor maximo que puede reestablecer tu pocion!");
+    pocimana.maximo = int.Parse(Console.ReadLine());
+    Console.WriteLine("ingrese un el valor minimo que puede reestablecer tu pocion!");
+    pocimana.minimo = int.Parse(Console.ReadLine());
+
+    return pocimana;
+
 
 }
 void MuestraPJ()
@@ -106,6 +119,8 @@ void MuestraPJ()
     Console.WriteLine("Vida: "+p1.Vida);
     Console.WriteLine("Mana: " +p1.Mana);
     Console.WriteLine();
+    Console.WriteLine("__________________inventario_____________");
+
     Console.WriteLine("----------------------------------------");
     Console.WriteLine();
     Console.WriteLine("Personaje: " + p2.Color);
@@ -113,3 +128,6 @@ void MuestraPJ()
     Console.WriteLine("Mana: " + p2.Mana);
 
 }
+
+
+

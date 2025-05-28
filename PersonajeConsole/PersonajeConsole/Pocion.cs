@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PersonajeConsole
 {
-    public abstract class Pocion :Personaje
+    public abstract class Pocion : item
     {
         public int maximo { get; set; }
         public int minimo { get; set; }
@@ -14,12 +14,7 @@ namespace PersonajeConsole
         public int cura { get; set; }
         public int restaura { get; set; }
 
-
-        public abstract int usar(Personaje p1);
-        
-          
-
-        
+        public abstract override int usar(Personaje p1);
 
     }
 }
