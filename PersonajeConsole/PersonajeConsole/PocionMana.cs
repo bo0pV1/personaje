@@ -26,5 +26,8 @@ namespace PersonajeConsole
             return restaura;
         }
 
+        public override string ToString() {
+            return "Pocion mana";    
+        }
     }
 }

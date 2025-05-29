@@ -24,5 +24,9 @@ namespace PersonajeConsole
 
             return cura;
         }
+        public override string ToString()
+        {
+            return "Pocion Vida";
+        }
     }
 }
