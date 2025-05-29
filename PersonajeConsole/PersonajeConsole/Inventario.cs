@@ -19,7 +19,7 @@ namespace PersonajeConsole
            it.Inventario = this;
         }
 
-        public void Eiminaritem(item it)
+        public void Eliminaritem(item it)
         {
             Items.Remove(it);
             it.Inventario = null;

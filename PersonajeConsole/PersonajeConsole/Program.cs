@@ -24,7 +24,8 @@ while (seleccion!=0)
     Console.WriteLine("1-cambiar color");
     Console.WriteLine("2-atacar!");
     Console.WriteLine("3-recibir daño");
-    Console.WriteLine("4-utilizar pocion (1-Vida/2-Mana)");
+    Console.WriteLine("4-crear pocion (1-Vida/2-Mana)");
+    Console.WriteLine("5-utilizar item");
     Console.WriteLine("0-salir");
     seleccion = int.Parse(Console.ReadLine());
     switch (seleccion)
@@ -52,18 +53,43 @@ while (seleccion!=0)
             switch (sel)
             {
                 case 1:
-
+                    personaje.Inventario.Agregaritem(CrearPocionVida());
                     break;
 
                 case 2:
+                    personaje.Inventario.Agregaritem(CrearPocionMana());
+                    break;
+            
+            }
+            break;
+        case 5:
+            int selec = 0;
+            int i = 1;
+            Console.WriteLine("que item desea utilizar?");
+            foreach (item it in p1.Inventario.Items)
+            {
+                Console.WriteLine(i+"- "+it);
+                i++;
+            }
+            selec = int.Parse(Console.ReadLine());
+            switch (selec)
+            {
+                case 1:
+                    PocionVida pocivida = new();
+                    pocivida.usar(p1);
+                    p1.Inventario.Eliminaritem(pocivida); 
+                    break;
+                case 2:
+                    PocionMana pocimana= new();
+                    pocimana.usar(p1);
+                    p1.Inventario.Eliminaritem(pocimana);
+
 
                     break;
             
-            }   
+            }
             
-
             break;
-        
     }
     MuestraPJ();
     Console.ReadKey();
@@ -119,14 +145,26 @@ void MuestraPJ()
     Console.WriteLine("Vida: "+p1.Vida);
     Console.WriteLine("Mana: " +p1.Mana);
     Console.WriteLine();
-    Console.WriteLine("__________________inventario_____________");
-
+    Console.WriteLine("_________________inventario_____________");
+    int i = 1;
+    foreach (item it in p1.Inventario.Items)
+    {
+        Console.WriteLine(i + "- " + it);
+        i++;
+    }
     Console.WriteLine("----------------------------------------");
     Console.WriteLine();
     Console.WriteLine("Personaje: " + p2.Color);
     Console.WriteLine("Vida: " + p2.Vida);
     Console.WriteLine("Mana: " + p2.Mana);
-
+    Console.WriteLine("_________________inventario_____________");
+    int f = 1;
+    foreach (item it in p2.Inventario.Items)
+    {
+        Console.WriteLine(i + "- " + it);
+        f++;
+    }
+    Console.WriteLine("----------------------------------------");
 }
 
 
