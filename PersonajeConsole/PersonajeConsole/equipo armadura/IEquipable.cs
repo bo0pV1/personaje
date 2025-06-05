@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace PersonajeConsole
 {
-    public abstract class Item 
+    public interface IEquipable
     {
-        public Inventario? Inventario { get; set; }
-        
-
+        public void Equipár(Personaje p1);
+        public void DesEquipár(Personaje p1);
     }
 }

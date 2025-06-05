@@ -10,16 +10,16 @@ namespace PersonajeConsole
     {
         public Personaje Personaje { get; set; }
 
-        public List<item> Items { get; set; } = new();
+        public List<Item> Items { get; set; } = new();
         string nombreitem { get; set; }
         string tipoitem { get; set; }
-        public void Agregaritem(item it)
+        public void Agregaritem(Item it)
         {
             Items.Add(it);
            it.Inventario = this;
         }
 
-        public void Eliminaritem(item it)
+        public void Eliminaritem(Item it)
         {
             Items.Remove(it);
             it.Inventario = null;

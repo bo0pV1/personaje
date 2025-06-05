@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace PersonajeConsole
 {
-    public abstract class Item 
+    internal class chaleco : equipo
     {
-        public Inventario? Inventario { get; set; }
-        
+        bool Equipar(Personaje Personaje) 
+        {
 
+        }
     }
 }

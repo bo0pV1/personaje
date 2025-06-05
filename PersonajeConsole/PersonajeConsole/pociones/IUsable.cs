@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PersonajeConsole
+namespace PersonajeConsole.pociones
 {
-    public abstract class Item 
+    public interface IUsable
     {
-        public Inventario? Inventario { get; set; }
-        
-
+        public int Usar(Personaje p1);
     }
 }

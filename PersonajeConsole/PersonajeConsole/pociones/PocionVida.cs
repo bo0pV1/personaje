@@ -8,7 +8,7 @@ namespace PersonajeConsole
 {
     public class PocionVida : Pocion
     {
-        public override int usar(Personaje p1)
+        public override int Usar(Personaje p1)
         {
             Random aleatorio = new Random();
             int numAL = aleatorio.Next(minimo, maximo);

@@ -66,28 +66,18 @@ while (seleccion!=0)
             int selec = 0;
             int i = 1;
             Console.WriteLine("que item desea utilizar?");
-            foreach (item it in p1.Inventario.Items)
+            foreach (Item it in p1.Inventario.Items)
             {
                 Console.WriteLine(i+"- "+it);
                 i++;
             }
             selec = int.Parse(Console.ReadLine());
-            switch (selec)
-            {
-                case 1:
-                    PocionVida pocivida = new();
-                    pocivida.usar(p1);
-                    p1.Inventario.Eliminaritem(pocivida); 
-                    break;
-                case 2:
-                    PocionMana pocimana= new();
-                    pocimana.usar(p1);
-                    p1.Inventario.Eliminaritem(pocimana);
-
-
-                    break;
+           
+            Item itemselec = p1.Inventario.Items[selec - 1];
+            itemselec.usar(p1);
+            p1.Inventario.Eliminaritem(itemselec); 
+               
             
-            }
             
             break;
     }
@@ -147,7 +137,7 @@ void MuestraPJ()
     Console.WriteLine();
     Console.WriteLine("_________________inventario_____________");
     int i = 1;
-    foreach (item it in p1.Inventario.Items)
+    foreach (Item it in p1.Inventario.Items)
     {
         Console.WriteLine(i + "- " + it);
         i++;
@@ -159,7 +149,7 @@ void MuestraPJ()
     Console.WriteLine("Mana: " + p2.Mana);
     Console.WriteLine("_________________inventario_____________");
     int f = 1;
-    foreach (item it in p2.Inventario.Items)
+    foreach (Item it in p2.Inventario.Items)
     {
         Console.WriteLine(i + "- " + it);
         f++;

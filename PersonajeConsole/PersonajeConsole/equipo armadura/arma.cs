@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace PersonajeConsole
 {
-    public abstract class Item 
+    internal class arma : equipo
     {
-        public Inventario? Inventario { get; set; }
-        
-
     }
 }
