@@ -1,4 +1,5 @@
 ﻿using PersonajeConsole;
+using PersonajeConsole.pociones;
 using System.Net;
 
 Personaje p1 = new Personaje();
@@ -72,11 +73,15 @@ while (seleccion!=0)
                 i++;
             }
             selec = int.Parse(Console.ReadLine());
+            Item ite = p1.Inventario.Items[selec];
+            if (ite is IUsable usableItem)
+            {
+                usableItem.Usar(p1);
+                ite = p1.Inventario.Items[selec - 1];
+                p1.Inventario.Eliminaritem(ite);
+
+            }
            
-            Item itemselec = p1.Inventario.Items[selec - 1];
-            itemselec.usar(p1);
-            p1.Inventario.Eliminaritem(itemselec); 
-               
             
             
             break;

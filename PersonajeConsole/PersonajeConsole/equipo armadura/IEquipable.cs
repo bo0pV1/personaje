@@ -8,7 +8,7 @@ namespace PersonajeConsole
 {
     public interface IEquipable
     {
-        public void Equipár(Personaje p1);
-        public void DesEquipár(Personaje p1);
+        public void Equipar(Personaje p1);
+        public void DesEquipar(Personaje p1);
     }
 }

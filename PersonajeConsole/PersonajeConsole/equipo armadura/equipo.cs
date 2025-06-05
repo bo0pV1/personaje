@@ -10,7 +10,7 @@ namespace PersonajeConsole
     {
         public bool Equipado;
 
-        public abstract void DesEquipár(Personaje p1);
-        public abstract void Equipár(Personaje p1);
+        public abstract void DesEquipar(Personaje p1);
+        public abstract void Equipar(Personaje p1);
     }
 }

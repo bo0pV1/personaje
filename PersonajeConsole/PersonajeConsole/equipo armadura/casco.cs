@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace PersonajeConsole
 {
-    internal class casco : equipo
+    public class Casco : Equipo,IEquipable
     {
+        public override void DesEquipar(Personaje p1)
+        {
+
+        }
+        public override void Equipar(Personaje p1)
+        {
+
+        }
+        public override string ToString()
+        {
+            return "Casco";
+        }
     }
 }

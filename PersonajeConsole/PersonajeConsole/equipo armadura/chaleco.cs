@@ -6,11 +6,21 @@ using System.Threading.Tasks;
 
 namespace PersonajeConsole
 {
-    internal class chaleco : equipo
+    public class Chaleco : Equipo,IEquipable
     {
-        bool Equipar(Personaje Personaje) 
+        public override void DesEquipar(Personaje p1)
         {
+            
+        }
+        public override void Equipar(Personaje p1)
+        { 
+           
+        
+        }
 
+        public override string ToString()
+        {
+            return "Chaleco/Pechera";
         }
     }
 }
