@@ -1,5 +1,6 @@
 ﻿using PersonajeConsole;
 using PersonajeConsole.pociones;
+using System.Collections;
 using System.Net;
 
 Personaje p1 = new Personaje();
@@ -27,6 +28,7 @@ while (seleccion!=0)
     Console.WriteLine("3-recibir daño");
     Console.WriteLine("4-crear pocion (1-Vida/2-Mana)");
     Console.WriteLine("5-utilizar item");
+    Console.WriteLine("6-Equipar - Desequipar item");
     Console.WriteLine("0-salir");
     seleccion = int.Parse(Console.ReadLine());
     switch (seleccion)
@@ -81,10 +83,54 @@ while (seleccion!=0)
                 p1.Inventario.Eliminaritem(ite);
 
             }
-           
-            
-            
             break;
+        case 6:
+            Console.WriteLine("ingrese que desea hacer, 1-Equipar Item 2-Desequipar item");
+            int seleccionadoes = int.Parse(Console.ReadLine());
+            switch (seleccionadoes)
+            {
+                case 1:
+                    int seleci = 0;
+                    int f = 1;
+                    Console.WriteLine("que item desea Equipar?");
+                    foreach (Item it in p1.Inventario.Items)
+                    {
+                        Console.WriteLine(f + "- " + it);
+                        f++;
+                    }
+                    seleci = int.Parse(Console.ReadLine());
+                    Item ites = p1.Inventario.Items[seleci];
+                    ites = p1.Inventario.Items[seleci - 1];
+                    if (ites is IEquipable EquipableItem)
+                    {
+
+                        EquipableItem.Equipar(p1);
+                        
+                    }
+                    break;
+                case 2:
+                    int selecio = 0;
+                    int e = 1;
+                    Console.WriteLine("que item desea DesEquipar?");
+                    foreach (Item it in p1.Inventario.Items)
+                    {
+                        Console.WriteLine(e + "- " + it);
+                        e++;
+                    }
+                    selecio = int.Parse(Console.ReadLine());
+                    Item ited = p1.Inventario.Items[selecio];
+                    ited = p1.Inventario.Items[selecio - 1];
+                    if (ited is IEquipable EquipableItem2)
+                    {
+
+                        EquipableItem2.DesEquipar(p1);
+
+                    }
+                    break;
+
+            }
+            break;
+
     }
     MuestraPJ();
     Console.ReadKey();
@@ -109,9 +155,11 @@ void CargaPersonaje(Personaje personaje)
     personaje.Inventario.Agregaritem(CrearPocionVida());
     personaje.Inventario.Agregaritem(CrearPocionMana());
     Chaleco chaleco = new Chaleco();
-    chaleco.DefensaAgregada = 10;
     personaje.Inventario.Agregaritem(chaleco);
-    chaleco.Equipar(personaje);
+    Casco casco = new Casco();
+    personaje.Inventario.Agregaritem(casco);
+    Arma arma = new Arma();
+    personaje.Inventario.Agregaritem(arma);
 }
 PocionVida CrearPocionVida()
 {
