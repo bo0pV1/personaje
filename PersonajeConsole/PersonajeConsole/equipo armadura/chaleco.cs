@@ -8,13 +8,16 @@ namespace PersonajeConsole
 {
     public class Chaleco : Equipo,IEquipable
     {
+        public int DefensaAgregada = 30;
         public override void DesEquipar(Personaje p1)
         {
-            
+            Equipado = false;
+            p1.Defensa -= DefensaAgregada;
         }
         public override void Equipar(Personaje p1)
-        { 
-           
+        {
+            Equipado = true;
+            p1.Defensa += DefensaAgregada;
         
         }
 

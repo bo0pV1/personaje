@@ -108,6 +108,10 @@ void CargaPersonaje(Personaje personaje)
     personaje.Inventario.Personaje = personaje;
     personaje.Inventario.Agregaritem(CrearPocionVida());
     personaje.Inventario.Agregaritem(CrearPocionMana());
+    Chaleco chaleco = new Chaleco();
+    chaleco.DefensaAgregada = 10;
+    personaje.Inventario.Agregaritem(chaleco);
+    chaleco.Equipar(personaje);
 }
 PocionVida CrearPocionVida()
 {
@@ -134,6 +138,8 @@ PocionMana CrearPocionMana()
 
 
 }
+
+
 void MuestraPJ()
 {
     Console.WriteLine("Personaje: " + p1.Color);
