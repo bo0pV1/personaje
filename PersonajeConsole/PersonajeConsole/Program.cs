@@ -2,6 +2,7 @@
 using PersonajeConsole.pociones;
 using System.Collections;
 using System.Net;
+using System.Timers;
 
 Personaje p1 = new Personaje();
 Personaje p2 = new Personaje();
@@ -28,7 +29,7 @@ while (seleccion!=0)
     Console.WriteLine("3-recibir daño");
     Console.WriteLine("4-crear pocion (1-Vida/2-Mana)");
     Console.WriteLine("5-utilizar item");
-    Console.WriteLine("6-Equipar - Desequipar item");
+    Console.WriteLine("6- 1-Equipar - 2-Desequipar item");
     Console.WriteLine("0-salir");
     seleccion = int.Parse(Console.ReadLine());
     switch (seleccion)
@@ -83,7 +84,11 @@ while (seleccion!=0)
                 p1.Inventario.Eliminaritem(ite);
 
             }
-            break;
+            else
+            {
+                Console.WriteLine("este item no se puede usar...");
+            }
+                break;
         case 6:
             Console.WriteLine("ingrese que desea hacer, 1-Equipar Item 2-Desequipar item");
             int seleccionadoes = int.Parse(Console.ReadLine());
@@ -105,9 +110,13 @@ while (seleccion!=0)
                     {
 
                         EquipableItem.Equipar(p1);
-                        
+                        Console.WriteLine("el item se equipo");
                     }
-                    break;
+                    else
+                    {
+                        Console.WriteLine("el item no es Equipable...");
+                    }
+                        break;
                 case 2:
                     int selecio = 0;
                     int e = 1;
@@ -124,7 +133,7 @@ while (seleccion!=0)
                     {
 
                         EquipableItem2.DesEquipar(p1);
-
+                        Console.WriteLine("el item se DesEquipo y se guardo en el inventario");
                     }
                     break;
 
